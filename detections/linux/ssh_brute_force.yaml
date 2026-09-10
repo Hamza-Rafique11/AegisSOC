@@ -1,0 +1,15 @@
+id: "AEGIS-LNX-001"
+name: "SSH Authentication Brute Force Attack"
+description: "Detects multiple continuous failed SSH login attempts targeting a Linux endpoint within a compressed time window, indicating automated credential guessing."
+category: "linux"
+severity: "HIGH"
+confidence: 85
+mitre_tactic: "Credential Access"
+mitre_technique: "Brute Force: Password Guessing"
+mitre_technique_id: "T1110.001"
+recommended_response: "Enforce dynamic IP blocklist at edge firewall, review compromised user accounts, mandate SSH key-only authentication."
+enabled: true
+conditions:
+  event_type: "authentication_failure"
+  min_failures: 5
+  timeframe_seconds: 60

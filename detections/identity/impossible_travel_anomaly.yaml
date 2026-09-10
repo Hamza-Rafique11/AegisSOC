@@ -1,0 +1,14 @@
+id: "AEGIS-ID-001"
+name: "Impossible Travel Velocity Anomaly"
+description: "Identifies sequential successful logins for a single identity occurring from geographically disparate locations within a time delta physically unfeasible by standard air travel."
+category: "identity"
+severity: "CRITICAL"
+confidence: 91
+mitre_tactic: "Initial Access"
+mitre_technique: "Valid Accounts: Cloud Accounts"
+mitre_technique_id: "T1078.004"
+recommended_response: "Revoke active identity session tokens, prompt immediate out-of-band MFA challenge, quarantine affected account."
+enabled: true
+conditions:
+  event_type: "authentication_success"
+  timeframe_seconds: 3600

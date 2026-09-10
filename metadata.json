@@ -1,0 +1,8 @@
+{
+  "name": "AegisSOC",
+  "description": "AI-Augmented Blue Team & Threat Detection Platform for enterprise SOC operations, threat hunting, and defensive security research.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

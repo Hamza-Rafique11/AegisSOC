@@ -1,0 +1,15 @@
+id: "AEGIS-WIN-001"
+name: "Suspicious Encoded PowerShell Execution"
+description: "Detects execution of PowerShell commands using encoded command flags (-enc, -encodedcommand) frequently utilized by loaders and droppers to conceal payloads."
+category: "windows"
+severity: "HIGH"
+confidence: 88
+mitre_tactic: "Execution"
+mitre_technique: "Command and Scripting Interpreter: PowerShell"
+mitre_technique_id: "T1059.001"
+recommended_response: "Inspect decoded script block content, isolate host if C2 download cradle observed, terminate process tree."
+enabled: true
+conditions:
+  event_type: "process_creation"
+  process_name: ["powershell.exe", "pwsh.exe"]
+  command_line_match: ["-enc", "-encodedcommand", "-e ", "frombase64string", "downloadstring"]

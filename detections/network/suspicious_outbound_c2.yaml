@@ -1,0 +1,14 @@
+id: "AEGIS-NET-001"
+name: "Suspicious Outbound C2 Beaconing / Non-Standard Port"
+description: "Detects internal endpoints establishing persistent TCP or HTTPS connections to external IP addresses over non-standard management or high ports."
+category: "network"
+severity: "HIGH"
+confidence: 82
+mitre_tactic: "Command and Control"
+mitre_technique: "Application Layer Protocol"
+mitre_technique_id: "T1071.001"
+recommended_response: "Block destination IP on perimeter firewall, trace PID on originating host, capture pcap for signature payload."
+enabled: true
+conditions:
+  event_type: "network_connection"
+  destination_port: [4444, 1337, 8443, 9001, 8088]
